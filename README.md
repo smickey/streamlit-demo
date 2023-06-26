@@ -6,4 +6,4 @@ A streamlit app template for geospatial applications based on [streamlit-option-
 
 App URL: <https://connect.streamlit.app/>
 
-![](https://i.imgur.com/xd64mCi.png)
+![](https://imgur.com/a/EgAig0b)
