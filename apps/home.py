@@ -5,15 +5,14 @@ import leafmap.foliumap as leafmap
 def app():
     st.title("Connect AI")
 
-    st.header("Testing Header")
+    # st.header("Testing Header")
 
-    st.subheader("Testing Subheader")
-
-    st.markdown(
-    """
+    st.subheader("""
     An app to showcase the best connectivity nearest to you.
     """
     )
+
+    # st.markdown()
 
     m = leafmap.Map(locate_control=True)
     m.add_basemap("ROADMAP")
