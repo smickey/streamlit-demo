@@ -1,5 +1,6 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
+from streamlit_folium import st_folium
 from h3 import h3
 import folium
 
@@ -27,13 +28,15 @@ def visualize_hexagons(hexagons, color="red", folium_map=None):
     for polyline in polylines:
         my_PolyLine=folium.Polygon(locations=polyline,fill=True, fill_color=color, fill_opacity=0.3, color=None)
         m.add_child(my_PolyLine)
-    return m
+    # return m
+    return st_folium(m, width=725)
 
-# def visualize_polygon(polyline, color):
-#     polyline.append(polyline[0])
-#     lat = [p[0] for p in polyline]
-#     lng = [p[1] for p in polyline]
-#     m = folium.Map(location=[sum(lat)/len(lat), sum(lng)/len(lng)], zoom_start=13, tiles='cartodbpositron')
-#     my_PolyLine=folium.PolyLine(locations=polyline,weight=8,color=color)
-#     m.add_child(my_PolyLine)
-#     return m
+def visualize_polygon(polyline, color):
+    polyline.append(polyline[0])
+    lat = [p[0] for p in polyline]
+    lng = [p[1] for p in polyline]
+    m = folium.Map(location=[sum(lat)/len(lat), sum(lng)/len(lng)], zoom_start=13, tiles='cartodbpositron')
+    my_PolyLine=folium.PolyLine(locations=polyline,weight=8,color=color)
+    m.add_child(my_PolyLine)
+    # return m
+    return st_folium(m, width=725)
