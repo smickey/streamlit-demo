@@ -1,7 +1,6 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
-import h3 as h3
-
+from h3 import h3
 
 def app():
     st.title("Connect AI")
