@@ -1,7 +1,7 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
 import folium
-from streamlit_folium import st_folium
+from streamlit_folium import st_folium, folium_static
 from h3 import h3
 
 def app():
