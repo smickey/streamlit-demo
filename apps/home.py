@@ -15,6 +15,6 @@ def app():
     # st.markdown()
 
     m = leafmap.Map(locate_control=True)
-    m.add_basemap("HYBRID")
+    m.add_basemap(google_map="HYBRID")
     m = leafmap.Map(center=(1.3521, 103.8198), zoom=12)
     m.to_streamlit(height=700)
