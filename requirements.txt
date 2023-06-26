@@ -9,3 +9,4 @@ nbserverproxy
 streamlit
 streamlit-option-menu
 h3
+streamlit-folium
