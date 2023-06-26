@@ -27,7 +27,7 @@ def app():
             fill=True,
             fill_opacity=0.6,
         ).add_to(map)
-    folium_static(map)
+    st_folium(map, width=700, height=700)
 if __name__ == "__main__":
     app()
 
