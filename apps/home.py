@@ -16,6 +16,5 @@ def app():
 
     m = leafmap.Map(locate_control=True)
     m.add_basemap("ROADMAP")
-    m.set_bounds
     m.to_streamlit(height=700)
     st.set_page_config(layout="wide")
