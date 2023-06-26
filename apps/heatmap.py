@@ -6,7 +6,7 @@ def app():
 
     st.title("Heatmap")
 
-    filepath = "https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/us_cities.csv"
+    filepath = "https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/world_cities.csv"
     m = leafmap.Map(tiles="stamentoner")
     m.add_heatmap(
         filepath,
@@ -17,3 +17,4 @@ def app():
         radius=20,
     )
     m.to_streamlit(height=700)
+    m = leafmap.Map(center=(1.3521, 103.8198), zoom=12)
