@@ -5,9 +5,13 @@ import leafmap.foliumap as leafmap
 def app():
     st.title("Connect AI")
 
+    st.header("Testing Header")
+
+    st.subheader("Testing Subheader")
+
     st.markdown(
-        """
-    A [streamlit](https://streamlit.io) app to showcase the heatmap connectivity near you.
+    """
+    An app to showcase the best connectivity nearest to you.
     """
     )
 
