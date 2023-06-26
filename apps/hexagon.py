@@ -28,8 +28,8 @@ def app(hexagons, color="red", folium_map=None):
     for polyline in polylines:
         my_PolyLine=folium.Polygon(locations=polyline,fill=True, fill_color=color, fill_opacity=0.3, color=None)
         m.add_child(my_PolyLine)
-    # return m
-    return st_folium(m, width=725)
+    return m
+    # return st_folium(m, width=725)
 
 # def visualize_polygon(polyline, color):
 #     polyline.append(polyline[0])
