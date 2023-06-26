@@ -1,17 +1,18 @@
 import streamlit as st
-import leafmap.foliumap as leafmap
 import folium
-from streamlit_folium import st_folium, folium_static
-from h3 import h3
+from streamlit_folium import st_folium
+import h3
+import branca.colormap as cm
 
 def app():
     st.title("Connect AI")
     st.markdown(
         """
-        Welcome to Connect AI!
+        Welcome to Connect AI! Where we connect you with your dates
         """
     )
     map = folium.Map(location=[1.3521, 103.8198], zoom_start=12, tiles="CartoDB Positron")
+    color_scale = cm.LinearColormap(['green', 'yellow', 'red', 'purple'], vmin=0, vmax=120)
     hexagons = {
         '8a652636062ffff': 0,
         '8a6526360197fff': 11.600000000000001,
@@ -22,28 +23,15 @@ def app():
     }
     for h3_index, time in hexagons.items():
         geo_boundary = h3.h3_to_geo_boundary(h3_index, geo_json=False)
+        color = color_scale(time)
         folium.Polygon(
             locations=geo_boundary,
-            fill=True,
-            fill_opacity=0.6,
+        color=None,
+        fill=True,
+        fill_color=color,
+        fill_opacity=0.6,
+        popup=f'Time: {time:.2f} min'
         ).add_to(map)
     st_folium(map, width=1400, height=700)
 if __name__ == "__main__":
     app()
-
-# def app():
-#     st.title("Connect AI")
-
-#     # st.header("Testing Header")
-
-#     st.subheader("""
-#     An app to showcase the best connectivity nearest to you.
-#     """
-#     )
-
-#     # st.markdown()
-
-#     m = leafmap.Map(locate_control=True)
-#     m.add_basemap("ROADMAP")
-#     m = leafmap.Map(center=(1.3521, 103.8198), zoom=12)
-#     m.to_streamlit(height=700)
