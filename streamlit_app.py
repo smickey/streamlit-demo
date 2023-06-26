@@ -42,6 +42,7 @@ with st.sidebar:
             [GitHub](https://github.com/khaiyuen/Connect_AI) | [Instagram](https://www.instagram.com/khaiyuen1987) | [YouTube](https://www.youtube.com/) | [LinkedIn](https://sg.linkedin.com/in/khai-yuen-looi-830b4181).
 
         Streamlit Source: <https://github.com/smickey/streamlit-demo>
+
         Map Data Source: <https://github.com/khaiyuen/Connect_AI>
 
     """
