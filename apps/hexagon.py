@@ -4,7 +4,7 @@ from streamlit_folium import st_folium
 from h3 import h3
 import folium
 
-def visualize_hexagons(hexagons, color="red", folium_map=None):
+def app(hexagons, color="red", folium_map=None):
     """
     hexagons is a list of hexcluster. Each hexcluster is a list of hexagons.
     eg. [[hex1, hex2], [hex3, hex4]]
@@ -31,12 +31,12 @@ def visualize_hexagons(hexagons, color="red", folium_map=None):
     # return m
     return st_folium(m, width=725)
 
-def visualize_polygon(polyline, color):
-    polyline.append(polyline[0])
-    lat = [p[0] for p in polyline]
-    lng = [p[1] for p in polyline]
-    m = folium.Map(location=[sum(lat)/len(lat), sum(lng)/len(lng)], zoom_start=13, tiles='cartodbpositron')
-    my_PolyLine=folium.PolyLine(locations=polyline,weight=8,color=color)
-    m.add_child(my_PolyLine)
-    # return m
-    return st_folium(m, width=725)
+# def visualize_polygon(polyline, color):
+#     polyline.append(polyline[0])
+#     lat = [p[0] for p in polyline]
+#     lng = [p[1] for p in polyline]
+#     m = folium.Map(location=[sum(lat)/len(lat), sum(lng)/len(lng)], zoom_start=13, tiles='cartodbpositron')
+#     my_PolyLine=folium.PolyLine(locations=polyline,weight=8,color=color)
+#     m.add_child(my_PolyLine)
+#     # return m
+#     return st_folium(m, width=725)
