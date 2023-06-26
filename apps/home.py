@@ -14,7 +14,7 @@ def app():
 
     # st.markdown()
 
-    m = leafmap.Map(locate_control=True, google_map="TERRAIN")
+    m = leafmap.Map(locate_control=True, google_map="ROADMAP")
     # m.add_basemap("ROADMAP")
     m = leafmap.Map(center=(1.3521, 103.8198), zoom=12)
     m.to_streamlit(height=700)
