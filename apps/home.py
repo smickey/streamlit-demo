@@ -11,7 +11,7 @@ def app():
         Welcome to Connect AI!
         """
     )
-    map = folium.Map(location=[1.3521, 103.8198], zoom_start=25, tiles="CartoDB Positron")
+    map = folium.Map(location=[1.3521, 103.8198], zoom_start=15, tiles="CartoDB Positron")
     hexagons = {
         '8a652636062ffff': 0,
         '8a6526360197fff': 11.600000000000001,
