@@ -2,6 +2,8 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from apps import home, heatmap, upload  # import your app modules here
 
+#app here
+
 st.set_page_config(page_title="Streamlit Geospatial", layout="wide")
 
 # A dictionary of apps in the format of {"App title": "App icon"}
@@ -39,9 +41,9 @@ with st.sidebar:
         This web [app](https://connect.streamlit.app/) is maintained by the [Connect AI team](https://github.com/khaiyuen/Connect_AI). You can follow us on social media:
             [GitHub](https://github.com/khaiyuen/Connect_AI) | [Instagram](https://www.instagram.com/khaiyuen1987) | [YouTube](https://www.youtube.com/) | [LinkedIn](https://sg.linkedin.com/in/khai-yuen-looi-830b4181).
 
-        Source code: <https://github.com/giswqs/streamlit-template>
+        Streamlit Source code: <https://github.com/giswqs/streamlit-template>
+        Map Data Source Code <https://github.com/khaiyuen/Connect_AI>
 
-        More menu icons: <https://icons.getbootstrap.com>
     """
     )
 
