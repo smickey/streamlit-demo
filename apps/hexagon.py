@@ -4,7 +4,7 @@ from streamlit_folium import st_folium
 from h3 import h3
 import folium
 
-def app(hexagons, color="red", folium_map=None):
+def app(hexagons, folium_map=None):
     """
     hexagons is a list of hexcluster. Each hexcluster is a list of hexagons.
     eg. [[hex1, hex2], [hex3, hex4]]
