@@ -9,6 +9,8 @@ def app(hexagons, color="red", folium_map=None):
     hexagons is a list of hexcluster. Each hexcluster is a list of hexagons.
     eg. [[hex1, hex2], [hex3, hex4]]
     """
+    st.title("Hexagon")
+
     polylines = []
     lat = []
     lng = []
