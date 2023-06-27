@@ -31,7 +31,7 @@ with st.sidebar:
         "🗺️ Click on the map!",
         options=titles,
         icons=icons,
-        # menu_icon="map",
+        menu_icon="🗺️",
         default_index=default_index,
     )
 
