@@ -10,12 +10,11 @@ def app():
     # st.markdown()
 
     # Base map
-    map = folium.Map(location=[1.3521, 103.8198], zoom_start=7, tiles="CartoDB Positron")
+    map = folium.Map(location=[1.3521, 103.8198], zoom_start=12, tiles="CartoDB Positron")
 
     # Color scale for the different time
     color_scale = cm.LinearColormap(['green', 'yellow', 'red', 'purple'], vmin=0, vmax=120)
     color_scale.caption = 'Time in minutes'
-    color_scale.add_to(map)
 
     # Hexagon
     hexagons = {
@@ -37,6 +36,7 @@ def app():
         fill_opacity=0.6,
         popup=f'Time: {time:.2f} min'
         ).add_to(map)
+    map.add_child(color_scale)
     st_folium(map, width=1400, height=700)
 
 if __name__ == "__main__":
