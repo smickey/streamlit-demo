@@ -4,8 +4,9 @@ from streamlit_folium import st_folium
 import h3
 import branca.colormap as cm
 import requests
+from streamlit_session_state import SessionState  # Import the SessionState
 
-@st.cache(show_spinner=True)
+@st.cache(show_spinner=False)
 def get_hexagons(user_input):
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
     hex_data = {}
@@ -26,26 +27,28 @@ def app():
     Welcome to Connect AI! Where we connect you with your dates
     """
 )
-    user_input = st.text_input("Where are you now?", "")
-    st.write("You are here at~", user_input)
+    session_state = SessionState.get(user_input="")
+    session_state.user_input = st.text_input("Where are you now?", session_state.user_input)
+    st.write("You are here at~", session_state.user_input)
 
-    hexagons = get_hexagons(user_input)
+    if session_state.user_input:
+        hexagons = get_hexagons(session_state.user_input)
 
-    map = folium.Map(location=[1.3521, 103.8198], zoom_start=12, tiles="CartoDB Positron")
-    map.add_child(folium.LatLngPopup())
-    color_scale = cm.LinearColormap(['green', 'yellow', 'red', 'purple'], vmin=0, vmax=120)
-    for h3_index, time in hexagons.items():
-        geo_boundary = h3.h3_to_geo_boundary(h3_index, geo_json=False)
-        color = color_scale(time)
-        folium.Polygon(
-            locations=geo_boundary,
-            color=None,
-            fill=True,
-            fill_color=color,
-            fill_opacity=0.6,
-            popup=f'Time: {time:.2f} min'
-        ).add_to(map)
-    st_folium(map, width=700, height=700)
+        map = folium.Map(location=[1.3521, 103.8198], zoom_start=12, tiles="CartoDB Positron")
+        map.add_child(folium.LatLngPopup())
+        color_scale = cm.LinearColormap(['green', 'yellow', 'red', 'purple'], vmin=0, vmax=120)
+        for h3_index, time in hexagons.items():
+            geo_boundary = h3.h3_to_geo_boundary(h3_index, geo_json=False)
+            color = color_scale(time)
+            folium.Polygon(
+                locations=geo_boundary,
+                color=None,
+                fill=True,
+                fill_color=color,
+                fill_opacity=0.6,
+                popup=f'Time: {time:.2f} min'
+            ).add_to(map)
+        st_folium(map, width=700, height=700)
 
 if __name__ == "__main__":
     app()
