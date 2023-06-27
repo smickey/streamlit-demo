@@ -4,18 +4,19 @@ from streamlit_folium import st_folium
 import h3
 import branca.colormap as cm
 import requests
-st.title("Connect AI")
-st.markdown(
+
+def app():
+    st.title("Connect AI")
+    st.markdown(
         """
         Welcome to Connect AI! Where we connect you with your dates
         """
 )
-# Create a text input box
-user_input = st.text_input("Where are you now?", "")
-# Display the input text
-st.write("You are here at~", user_input)
+    # Create a text input box
+    user_input = st.text_input("Where are you now?", "")
+    # Display the input text
+    st.write("You are here at~", user_input)
 
-def app():
     # Call API
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
     if response.status_code == 200:
