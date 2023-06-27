@@ -28,11 +28,13 @@ def app():
 )
     if 'user_input' not in st.session_state:
         st.session_state['user_input'] = ''
+        st.session_state['prev_user_input'] = ''
 
     st.session_state['user_input'] = st.text_input("Where are you now?", st.session_state['user_input'])
     st.write("You are here at~", st.session_state['user_input'])
 
-    if st.session_state['user_input']:
+    if st.session_state['user_input'] and st.session_state['user_input'] != st.session_state['prev_user_input']:
+        st.session_state['prev_user_input'] = st.session_state['user_input']
         hexagons = get_hexagons(st.session_state['user_input'])
 
         map = folium.Map(location=[1.3521, 103.8198], zoom_start=12, tiles="CartoDB Positron")
