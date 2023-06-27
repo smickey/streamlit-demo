@@ -35,8 +35,8 @@ with st.sidebar:
         default_index=default_index,
     )
 
-    st.sidebar.title("How to use")
-    st.sidebar.info(
+    st.sidebar.markdown("<h1 style='text-align: center; color: red;'>How to use</h1>")
+    st.sidebar.markdown(
         """
         1. Click on any point
 
@@ -45,6 +45,18 @@ with st.sidebar:
         3. See the best place to meet
     """
     )
+
+
+    # st.sidebar.title("How to use")
+    # st.sidebar.info(
+    #     """
+    #     1. Click on any point
+
+    #     2. Click on another point
+
+    #     3. See the best place to meet
+    # """
+    # )
 
 
     # st.sidebar.title("About")
