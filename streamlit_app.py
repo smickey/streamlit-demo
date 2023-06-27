@@ -28,10 +28,10 @@ else:
 
 with st.sidebar:
     selected = option_menu(
-        "Click on the 🗺️ !",
+        "Click on the map!",
         options=titles,
         icons=icons,
-        menu_icon="map",
+        menu_icon="🗺️",
         default_index=default_index,
     )
 
