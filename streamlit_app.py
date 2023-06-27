@@ -44,7 +44,8 @@ with st.sidebar:
 
         3. See the best place to meet
     </h2>
-    """
+    """,
+    unsafe_allow_html=True
     )
 
 
