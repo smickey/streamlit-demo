@@ -5,7 +5,6 @@ import h3
 import branca.colormap as cm
 import requests
 
-@st.cache_data(show_spinner="Fetching data from API...")
 def app(user_input=None):
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
     if response.status_code == 200:
