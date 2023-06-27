@@ -5,7 +5,6 @@ import h3
 import branca.colormap as cm
 import requests
 
-@st.cache_data
 def app():
     st.title("Connect AI")
     st.markdown(
@@ -18,6 +17,7 @@ def app():
     # Display the input text
     st.write("You are here at~", user_input)
 
+    @st.cache_data(ttl=3600)
     # Call API
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
     if response.status_code == 200:
