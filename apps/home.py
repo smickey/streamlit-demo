@@ -44,6 +44,6 @@ def app():
         fill_opacity=0.6,
         popup=f'Time: {time:.2f} min'
         ).add_to(map)
-    st_folium(map, width=1400, height=700)
+    st_folium(map, width=700, height=700)
 if __name__ == "__main__":
     app()
