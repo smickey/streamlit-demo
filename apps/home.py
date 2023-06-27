@@ -6,11 +6,12 @@ import branca.colormap as cm
 
 def app():
     st.title("Connect AI")
-    st.markdown(
-        """
-        Welcome to Connect AI! Where we connect you with your dates
-        """
-    )
+    st.subheader("Finding you the best place to meet")
+    # st.markdown(
+    #     """
+    #     Welcome to Connect AI! Where we connect you with your dates
+    #     """
+    # )
     map = folium.Map(location=[1.3521, 103.8198], zoom_start=12, tiles="CartoDB Positron")
     color_scale = cm.LinearColormap(['green', 'yellow', 'red', 'purple'], vmin=0, vmax=120)
     hexagons = {
