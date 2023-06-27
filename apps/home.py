@@ -14,14 +14,8 @@ def app():
 
     # Color scale for the different time
     color_scale = cm.LinearColormap(['green', 'yellow', 'red', 'purple'], vmin=0, vmax=120)
-    color_scale.caption = 'Time in minutes'
+    # color_scale.caption = 'Time in minutes'
     # color_scale.add_to(map)
-
-    #specify the min and max values of your data
-    colormap = cm.linear.YlOrRd_09.scale(0, 8500)
-    colormap = colormap.to_step(index=[0, 1000, 3000, 5000, 8500])
-    colormap.caption = 'Incidents of Crime in Victoria (year ending June 2018)'
-    colormap.add_to(map)
 
     # Hexagon
     hexagons = {
