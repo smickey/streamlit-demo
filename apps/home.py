@@ -17,6 +17,12 @@ def app():
     color_scale.caption = 'Time in minutes'
     # color_scale.add_to(map)
 
+    #specify the min and max values of your data
+    colormap = cm.linear.YlOrRd_09.scale(0, 8500)
+    colormap = colormap.to_step(index=[0, 1000, 3000, 5000, 8500])
+    colormap.caption = 'Incidents of Crime in Victoria (year ending June 2018)'
+    colormap.add_to(map)
+
     # Hexagon
     hexagons = {
         '8a652636062ffff': 0,
@@ -37,7 +43,7 @@ def app():
         fill_opacity=0.6,
         popup=f'Time: {time:.2f} min'
         ).add_to(map)
-    color_scale.add_to(st_folium(map, width=1400, height=700))
+    st_folium(map, width=1400, height=700)
 
 if __name__ == "__main__":
     app()
