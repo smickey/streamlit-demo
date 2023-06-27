@@ -37,9 +37,9 @@ with st.sidebar:
 
     st.sidebar.markdown("<h1 style='text-align: center; color: red;'>How to use</h1>", unsafe_allow_html=True)
     st.sidebar.markdown("""
-        1. Click on *ANY* point
+        1. Click on **ANY** point
 
-        2. Click on another point
+        2. Click on **ANOTHER** point
 
         3. See the best place to meet
     """
