@@ -35,7 +35,7 @@ with st.sidebar:
         default_index=default_index,
     )
 
-    st.sidebar.markdown("<h1 style='text-align: center; color: red;'>How to use</h1>")
+    st.sidebar.markdown(<h1 style='text-align: center; color: red;'>How to use</h1>)
     st.sidebar.markdown(
         """
         1. Click on any point
