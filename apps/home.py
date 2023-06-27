@@ -26,12 +26,14 @@ def app():
     Welcome to Connect AI! Where we connect you with your dates
     """
 )
-    session_state = st.session_state.get(user_input="")
-    session_state.user_input = st.text_input("Where are you now?", session_state.user_input)
-    st.write("You are here at~", session_state.user_input)
+    if 'user_input' not in st.session_state:
+        st.session_state['user_input'] = ''
 
-    if session_state.user_input:
-        hexagons = get_hexagons(session_state.user_input)
+    st.session_state['user_input'] = st.text_input("Where are you now?", st.session_state['user_input'])
+    st.write("You are here at~", st.session_state['user_input'])
+
+    if st.session_state['user_input']:
+        hexagons = get_hexagons(st.session_state['user_input'])
 
         map = folium.Map(location=[1.3521, 103.8198], zoom_start=12, tiles="CartoDB Positron")
         map.add_child(folium.LatLngPopup())
