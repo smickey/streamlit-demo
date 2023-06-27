@@ -35,11 +35,5 @@ def app():
         ).add_to(map)
     st_folium(map, width=1400, height=700)
 
-    labels = ['One', 'Two', 'Three', 'Four', 'ect']
-    # color can be defined using either hex code or RGB (0-255, 0-255, 0-255)
-    colors = ['#8DD3C7', '#FFFFB3', '#BEBADA', '#FB8072', '#80B1D3']
-    # colors = [(255, 0, 0), (127, 255, 0), (127, 18, 25), (36, 70, 180), (96, 68, 123)]
-    map.add_legend(title='Legend', labels=labels, colors=colors)
-
 if __name__ == "__main__":
     app()
