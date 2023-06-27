@@ -9,7 +9,7 @@ st.set_page_config(page_title="Streamlit Geospatial", layout="wide")
 # A dictionary of apps in the format of {"App title": "App icon"}
 # More icons can be found here: https://icons.getbootstrap.com
 
-@st.cache_data
+
 apps = [
     {"func": home.app, "title": "Connect AI", "icon": "cursor"}
     # {"func": heatmap.app, "title": "Heatmap", "icon": "map"},
