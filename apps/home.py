@@ -36,7 +36,7 @@ def app():
         fill_opacity=0.6,
         popup=f'Time: {time:.2f} min'
         ).add_to(map)
-    map.add_child(color_scale)
+    map.add_legend(color_scale)
     st_folium(map, width=1400, height=700)
 
 if __name__ == "__main__":
