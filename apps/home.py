@@ -5,7 +5,7 @@ import h3
 import branca.colormap as cm
 import requests
 
-@st.cache(show_spinner=False)
+@st.cache(show_spinner=True)
 def get_hexagons(user_input):
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
     hex_data = {}
