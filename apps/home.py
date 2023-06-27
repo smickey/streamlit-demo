@@ -4,7 +4,6 @@ from streamlit_folium import st_folium
 import h3
 import branca.colormap as cm
 import requests
-from streamlit_session_state import SessionState  # Import the SessionState
 
 @st.cache(show_spinner=False)
 def get_hexagons(user_input):
@@ -27,7 +26,7 @@ def app():
     Welcome to Connect AI! Where we connect you with your dates
     """
 )
-    session_state = SessionState.get(user_input="")
+    session_state = st.session_state.get(user_input="")
     session_state.user_input = st.text_input("Where are you now?", session_state.user_input)
     st.write("You are here at~", session_state.user_input)
 
