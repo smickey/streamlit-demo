@@ -36,13 +36,14 @@ with st.sidebar:
     )
 
     st.sidebar.markdown("<h1 style='text-align: center; color: red;'>How to use</h1>", unsafe_allow_html=True)
-    st.sidebar.markdown(
-        """
+    st.sidebar.markdown("""
+        <h2 style='text-align: center; color: red'>
         1. Click on any point
 
         2. Click on another point
 
         3. See the best place to meet
+    </h2>
     """
     )
 
