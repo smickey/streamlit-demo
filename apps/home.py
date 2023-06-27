@@ -17,7 +17,6 @@ def app():
     # Display the input text
     st.write("You are here at~", user_input)
 
-    @st.cache(ttl=3600)
     # Call API
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
     if response.status_code == 200:
@@ -29,8 +28,10 @@ def app():
         hexagon_id = list(value.keys())[0]
         measurement = list(value.values())[0]
         hexagons[hexagon_id] = measurement
+
     # Plot map
     map = folium.Map(location=[1.3521, 103.8198], zoom_start=12, tiles="CartoDB Positron")
+
     # Add click event handler
     map.add_child(folium.LatLngPopup())
     color_scale = cm.LinearColormap(['green', 'yellow', 'red', 'purple'], vmin=0, vmax=120)
