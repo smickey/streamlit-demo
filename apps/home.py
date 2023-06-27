@@ -14,8 +14,8 @@ def app():
 
     # Color scale for the different time
     color_scale = cm.LinearColormap(['green', 'yellow', 'red', 'purple'], vmin=0, vmax=120)
-    color_scale.caption = 'Time in minutes'
-    color_scale.add_to(map)
+    # color_scale.caption = 'Time in minutes'
+    # color_scale.add_to(map)
 
     # Hexagon
     hexagons = {
