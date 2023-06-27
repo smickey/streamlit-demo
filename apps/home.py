@@ -14,7 +14,7 @@ def app():
 
     # Color scale for the different time
     color_scale = cm.LinearColormap(['green', 'yellow', 'red', 'purple'], vmin=0, vmax=120)
-    # color_scale.caption = 'Time in minutes'
+    color_scale.caption = 'Time in minutes'
     # color_scale.add_to(map)
 
     # Hexagon
@@ -37,8 +37,7 @@ def app():
         fill_opacity=0.6,
         popup=f'Time: {time:.2f} min'
         ).add_to(map)
-    color_scale.add_to(map)
-    st_folium(map, width=1400, height=700)
+    color_scale.add_to(st_folium(map, width=1400, height=700))
 
 if __name__ == "__main__":
     app()
