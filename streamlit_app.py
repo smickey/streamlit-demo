@@ -28,7 +28,7 @@ else:
 
 with st.sidebar:
     selected = option_menu(
-        "Click on the map!",
+        "Click on the 🗺️ !",
         options=titles,
         icons=icons,
         menu_icon="map",
