@@ -28,10 +28,10 @@ else:
 
 with st.sidebar:
     selected = option_menu(
-        "Connect",
+        "Click on the map!",
         options=titles,
         icons=icons,
-        menu_icon="cast",
+        menu_icon="map",
         default_index=default_index,
     )
 
