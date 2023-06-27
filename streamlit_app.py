@@ -39,7 +39,7 @@ with st.sidebar:
     st.sidebar.markdown("""
         1. Click on **ANY** point
 
-        2. Click on **ANOTHER** point
+        2. Click on ***ANOTHER*** point
 
         3. See the best place to meet
     """
