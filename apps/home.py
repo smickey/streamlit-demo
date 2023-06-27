@@ -9,7 +9,6 @@ import requests
 st.title("Connect AI")
 st.subheader("Finding you the best place to meet")
 
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def app():
      # Call API
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
