@@ -6,11 +6,11 @@ import branca.colormap as cm
 from branca.element import Template, MacroElement
 import requests
 
-@st.cache(allow_output_mutation=True)
-def app():
-    st.title("Connect AI")
-    st.subheader("Finding you the best place to meet")
+st.title("Connect AI")
+st.subheader("Finding you the best place to meet")
 
+@st.cache(allow_output_mutation=True, suppress_st_warning=True)
+def app():
      # Call API
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
     if response.status_code == 200:
