@@ -14,7 +14,7 @@ st.markdown(
 user_input = st.text_input("Where are you now?", "")
 # Display the input text
 st.write("You are here at~", user_input)
-@st.cache(allow_output_mutation=True)
+
 def app():
     # Call API
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
