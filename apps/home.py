@@ -32,7 +32,8 @@ def app(user_input=None):
             fill_opacity=0.6,
             popup=f'Time: {time:.2f} min'
         ).add_to(map)
-    st_folium(map)
+    st_folium(map, width=700, height=700)
+
 def main():
     st.title("Connect AI")
     st.markdown("Welcome to Connect AI! Where we connect you with your dates")
