@@ -5,6 +5,19 @@ import h3
 import branca.colormap as cm
 import requests
 
+def main():
+    st.title("Connect AI")
+    st.markdown("Welcome to Connect AI! Where we connect you with your dates")
+    # Create a text input box
+    user_input = st.text_input("Where are you now?", "")
+    # Display the input text
+    st.write("You are here at~", user_input)
+    # Call app when Enter is pressed
+    if st.button("Submit"):
+        app(user_input)
+if __name__ == "__main__":
+    main()
+
 def app(user_input=None):
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
     if response.status_code == 200:
@@ -33,16 +46,3 @@ def app(user_input=None):
             popup=f'Time: {time:.2f} min'
         ).add_to(map)
     folium_static(map, width=700, height=500)
-
-def main():
-    st.title("Connect AI")
-    st.markdown("Welcome to Connect AI! Where we connect you with your dates")
-    # Create a text input box
-    user_input = st.text_input("Where are you now?", "")
-    # Display the input text
-    st.write("You are here at~", user_input)
-    # Call app when Enter is pressed
-    if st.button("Submit"):
-        app(user_input)
-if __name__ == "__main__":
-    main()
