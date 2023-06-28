@@ -6,6 +6,10 @@ import branca.colormap as cm
 import requests
 
 def app(user_input=None):
+    st.title("Connect AI")
+    # Markdown
+    st.markdown("Welcome to Connect AI! Where we connect you with your dates")
+
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
     if response.status_code == 200:
         hex_data = response.json()
