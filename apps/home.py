@@ -6,10 +6,6 @@ import branca.colormap as cm
 import requests
 
 def app(user_input=None):
-    st.title("Connect AI")
-    # Markdown
-    st.markdown("Welcome to Connect AI! Where we connect you with your dates")
-
     response = requests.get(f"https://connectai-emwgdoqmma-de.a.run.app/traveltimeh3?locations={user_input}")
     if response.status_code == 200:
         hex_data = response.json()
@@ -36,13 +32,12 @@ def app(user_input=None):
             fill_opacity=0.6,
             popup=f'Time: {time:.2f} min'
         ).add_to(map)
-    folium_static(map, width=700, height=500)
+    st_folium(map, width=700, height=500)
 
 def main():
-    # Title
     st.title("Connect AI")
-    # Markdown
     st.markdown("Welcome to Connect AI! Where we connect you with your dates")
+    st.stop()
     # Create a text input box
     user_input = st.text_input("Where are you now?", "")
     # Display the input text
