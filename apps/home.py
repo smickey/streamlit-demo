@@ -34,7 +34,7 @@ def app(user_input=None):
         ).add_to(map)
 
     # Title and markdown
-    with st.layer():
+    with st.sidebar():
         st.title("Connect AI")
         st.markdown("Welcome to Connect AI! Where we connect you with your dates")
 
