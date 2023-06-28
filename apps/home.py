@@ -1,4 +1,6 @@
 import streamlit as st
+import streamlit.ReportThread as ReportThread
+from streamlit.server.Server import Server
 import folium
 from streamlit_folium import st_folium, folium_static
 import h3
@@ -32,23 +34,29 @@ def app(user_input=None):
             fill_opacity=0.6,
             popup=f'Time: {time:.2f} min'
         ).add_to(map)
+    st_folium(map, width=700, height=500)
 
-    # Title and markdown
-    with st.sidebar():
-        st.title("Connect AI")
-        st.markdown("Welcome to Connect AI! Where we connect you with your dates")
-
-    st_folium(map, width=700, height=700)
+def get_session():
+    ctx = ReportThread.get_report_ctx()
+    session_id = ctx.session_id
+    session_info = Server.get_current()._get_session_info(session_id)
+    if session_info is None:
+        raise RuntimeError("Couldn't get your Streamlit Session object.")
+    return session_info.session
 
 def main():
-    # st.title("Connect AI")
-    # st.markdown("Welcome to Connect AI! Where we connect you with your dates")
-    # Create a text input box
-    user_input = st.text_input("Where are you now?", "")
-    # Display the input text
+    session = get_session()
+    if 'user_input' not in session:
+        session['user_input'] = ''
+    user_input = st.text_input("Where are you now?", session['user_input'])
+    session['user_input'] = user_input
     st.write("You are here at~", user_input)
-    # Call app when Enter is pressed
-    app(user_input)
+    if st.button("Submit"):
+        app(user_input)
+
+    # Title and markdown
+    st.title("Connect AI")
+    st.markdown("Welcome to Connect AI! Where we connect you with your dates")
 
 if __name__ == "__main__":
     main()
