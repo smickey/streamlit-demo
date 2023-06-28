@@ -1,6 +1,6 @@
 import streamlit as st
 import folium
-from streamlit_folium import st_folium
+from streamlit_folium import st_folium, folium_static
 import h3
 import branca.colormap as cm
 import requests
@@ -17,7 +17,7 @@ def app(user_input=None):
         measurement = list(value.values())[0]
         hexagons[hexagon_id] = measurement
     # Plot map
-    map = folium.Map(location=[1.3521, 103.8198], zoom_start=12, tiles="CartoDB Positron")
+    map = folium.Map(location=[1.3521, 103.8198], zoom_start=12, tiles="CartoDB Positron", prefer_canvas=True)
     # Add click event handler
     map.add_child(folium.LatLngPopup())
     color_scale = cm.LinearColormap(['green', 'yellow', 'red', 'purple'], vmin=0, vmax=120)
@@ -32,7 +32,7 @@ def app(user_input=None):
             fill_opacity=0.6,
             popup=f'Time: {time:.2f} min'
         ).add_to(map)
-    st_folium(map, width=700, height=500)
+    folium_static(map, width=700, height=500)
 
 def main():
     st.title("Connect AI")
